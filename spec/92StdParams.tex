@@ -1,0 +1,199 @@
+\begin{appendix}{Б}{рекомендуемое}
+{Стандартные параметры эллиптической кривой}
+\label{STD}
+
+\mbox{}
+
+В таблицах~\ref{Table.STD.StdCurve128}~--- \ref{Table.STD.StdCurve256} 
+представлены стандартные параметры 
+эллиптической кривой для различных уровней стойкости.
+
+\begin{table}[!h]
+\caption{Стандартные параметры ($l=128$)}\label{Table.STD.StdCurve128}
+{\small
+\begin{tabular}{|l|l|}
+\hline
+$\phantom{\langle}p\phantom{\rangle}$ &
+$2^{256}-189$\\
+$\langle p\rangle_{256}$ & 
+$\texttt{43FFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF}_{16}$\\
+%
+\hline
+$\phantom{\langle}a\phantom{\rangle}$ &
+$2^{256}-192$\\
+$\langle a\rangle_{256}$ & 
+$\texttt{40FFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF}_{16}$\\
+%
+\hline
+$\langle b\rangle_{256}$ & 
+$\texttt{F1039CD6~6B7D2EB2~53928B97~6950F54C~BEFBD8E4~AB3AC1D2~EDA8F315~156CCE77}_{16}$\\
+%
+\hline
+$seed$ & 
+$\texttt{5E380100~00000000}_{16}$\\
+%
+\hline
+$\phantom{\langle}q\phantom{\rangle}$ &
+$2^{256}-51~359303463~308904523~350978545~619999225$\\
+$\langle q\rangle_{256}$ & 
+$\texttt{07663D26~99BF5A7E~FC4DFB0D~D68E5CD9~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF}_{16}$\\
+%
+\hline
+$\langle y_G\rangle_{256}$ & 
+$\texttt{936A5104~18CF291E~52F608C4~66399178~5D83D651~A3C9E45C~9FD616FB~3CFCF76B}_{16}$\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+% q - 1 = 2 \cdot 3 \cdot 5 \cdot 59 \cdot 2707 \cdot 8287 \cdot r_{67}
+% q + 1 = 2^3 \cdot 7 \cdot 449 \cdot 31327 \cdot r_{69}
+%
+% r_{67} = 2916218286986803399954682775638557602051950500431652210843433933747
+% r_{69} = 147002836537740394144895682109200724963443337293240673732623081479849
+%
+% q1 = 2(p + 1) - q =
+%   115792089237316195423570985008687907853321343969103872943980934986458749638785 =
+%   3 * 5 * 7 * 1102781802260154242129247476273218170031631847324798789942675571299607139417
+%
+
+\begin{table}[!h]
+\caption{Стандартные параметры ($l=192$)}\label{Table.STD.StdCurve192}
+{\small
+\begin{tabular}{|l|l|}
+\hline
+$\phantom{\langle}p\phantom{\rangle}$ &
+$2^{384}-317$\\
+$\langle p\rangle_{384}$ & 
+$\texttt{C3FEFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF}\phantom{\mbox{}_{16}}$\\
+& 
+$\texttt{FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF}_{16}$\\
+%
+\hline
+$\phantom{\langle}a\phantom{\rangle}$ &
+$2^{384}-320$\\
+$\langle a\rangle_{384}$ & 
+$\texttt{C0FEFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF}$\\
+& 
+$\texttt{FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF}_{16}$\\
+%
+\hline
+$\langle b\rangle_{384}$ & 
+$\texttt{64BF7368~23FCA7BC~7CBDCEF3~F0E2BD14~3A2E71E9~F96A21A6~96B1FB0F~BB482771}$\\
+&
+$\texttt{D2345D65~AB5A0733~20EF9C95~E1DF753C}_{16}$\\
+%
+\hline
+$seed$ & 
+$\texttt{23AF0000~00000000}_{16}$\\
+%
+\hline
+$\phantom{\langle}q\phantom{\rangle}$ &
+$2^{384}-9886~438520659~958522437~788006980~660965037~549058207~958390857$\\
+$\langle q\rangle_{384}$ & 
+$\texttt{B7A70CF3~3FDCB73D~0AFFA4A6~E7DA4680~BB7BAF73~03C4CC6C~FEFFFFFF~FFFFFFFF}$\\
+&
+$\texttt{FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF}_{16}$\\
+%
+\hline
+$\langle y_G\rangle_{384}$ & 
+$\texttt{51C433F7~31CB5EEA~F9422A6B~273E4084~55D3B166~9EE74905~A0FF86DC~119A723A}$\\
+&
+$\texttt{89BF2D43~7E113063~9E9E2EA8~2482435D}_{16}$\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+% q - 1 = 2 \cdot 3 \cdot 13 \cdot 23 \cdot 1217 \cdot r_{110}
+% q + 1 = 2^3 \cdot 5 \cdot 17 \cdot r_{113}
+%
+% r_{110} = 18047012453817334698368724791642558095633183958610069110097845995244378831004641978972767617576656091723814171
+% r_{113} = 57944126759403645900410353088446490889823145985978598041085892596654502666139371799128361167529232487865323576347
+%
+% q1 = 2(p + 1) - q
+%   39402006196394479212279040100143613805079739270465446667958179842766381730019648399421246915849953189864835948697041
+%     p2 factor: 17                                         
+%     p3 factor: 359                                        
+%     p3 factor: 691                                        
+%     p5 factor: 13523                                      
+%     prp12 factor: 172542535681                            
+%     prp13 factor: 2385764323387                           
+%     prp19 factor: 4024700078017400843                     
+%     prp24 factor: 380199665291374594192427                
+%     prp40 factor: 1096869350422752643704407065915614099637
+    
+\clearpage
+
+\begin{table}[!h]
+\caption{Стандартные параметры ($l=256$)}\label{Table.STD.StdCurve256}
+{\small
+\begin{tabular}{|l|l|}
+\hline
+$\phantom{\langle}p\phantom{\rangle}$ &
+$2^{512}-569$\\
+$\langle p\rangle_{512}$ & 
+$\texttt{C7FDFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF}$\\
+& 
+$\texttt{FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF}_{16}$\\
+%
+\hline
+$\phantom{\langle}a\phantom{\rangle}$ &
+$2^{512}-572$\\
+$\langle a\rangle_{512}$ & 
+$\texttt{C4FDFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF}$\\
+& 
+$\texttt{FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF}_{16}$\\
+%
+\hline
+$\langle b\rangle_{512}$ & 
+$\texttt{909C13D6~98693409~7AA2493A~272286EA~43A2AC87~8C003329~955E24C4~B5DC1127}$\\
+&
+$\texttt{88B0ADDA~E313CE17~51255DDD~EEA9C65B~8958FD60~6A5D8CD8~438C3B93~4459B46C}_{16}$\\
+%
+\hline
+$seed$ & 
+$\texttt{AE170200~00000000}_{16}$\\
+%
+\hline
+%
+%$\phantom{\langle}q\phantom{\rangle}$ &
+%$2^{512}-34941~104250934~712071732~195640491~222284153~110230636~945247985~077724188~765679887$\\
+%
+$\langle q\rangle_{512}$ & 
+$\texttt{F18E060D~49ADFFDC~32DF5695~E5CA1B36~F413212E~B0EB6BF2~4E009801~2C09C0B2}$\\
+&
+$\texttt{FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF~FFFFFFFF}_{16}$\\
+%
+\hline
+$\langle y_G\rangle_{512}$ & 
+$\texttt{BDEDEFCE~6FAE92B7~040D4CC9~B983AA67~6122E8EE~957377FF~D26FFA0E~E2DD7369}$\\
+&
+$\texttt{DACACC00~1BF8EDD2~E2BC61B3~B341ABB0~AB8FD1A0~F7E682B1~817603E4~7AFF26A8}_{16}$\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+% q - 1 = 2^4 \cdot 23 \cdot 79 \cdot 767957 \cdot 4433647 \cdot 103529265929 \cdot r_{127}
+% q + 1 = 2 \cdot 3^2 \cdot 5 \cdot 19 \cdot 13997 \cdot 93740551 \cdot 20778982613 \cdot r_{129}
+%
+% r_{127} = 1308343314750017383928904867715629170489552989408582535320842695321966617172828479212694472585253547784157766350220835409484829
+% r_{113} = 287590757912721896764998082377247258456295250575318456032221962229000294207325447285780351049971967149656976174483368729449225641
+%
+% q1 = 2(p + 1) - q = 
+% 13407807929942597099574024998205846127479365820592393377723561443721764030073581917906125232878975159885672349408770203963984519757194555024157837771762847
+%   p2 factor: 29
+%   p4 factor: 2243
+%   prp11 factor: 98808980449
+%   c139 factor: 2086095039545064497165344763634883115229104710619827999139079108333725773724904444939842460138012971701143422511990089862816255579493554649
+%
+
+\mbox{}
+\vfill
+\mbox{}
+\clearpage
+
+\end{appendix}
+
+\clearpage

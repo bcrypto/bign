@@ -1,0 +1,468 @@
+\begin{appendix}{Г}{справочное}
+{Проверочные примеры}
+\label{TEST}
+
+\hiddensection{Генерация пары ключей}\label{TEST.GenKeyPair}
+
+В таблице~\ref{Table.TEST.GenKeyPair} представлен пример генерации личного ключа.
+Используются параметры эллиптической кривой, 
+заданные в таблице~\ref{Table.STD.StdCurve128}. 
+
+\begin{table}[!h]
+\caption{Генерация пары ключей}\label{Table.TEST.GenKeyPair}
+{\small
+\begin{tabular}{|l|l|}
+\hline
+$\langle d\rangle_{256}$ & 
+$\texttt{1F66B5B8~4B733967~4533F032~9C74F218~34281FED~0732429E~0C79235F~C273E269}_{16}$\\
+%
+\hline
+$\langle x_Q\rangle_{256}$ & 
+$\texttt{BD1A5650~179D79E0~3FCEE49D~4C2BD5DD~F54CE46D~0CF11E4F~F87BF7A8~90857FD0}_{16}$\\
+%
+\hline
+$\langle y_Q\rangle_{256}$ & 
+$\texttt{7AC6A603~61E8C817~3491686D~461B2826~190C2EDA~5909054A~9AB84D2A~B9D99A90}_{16}$\\
+%
+\hline
+\end{tabular}
+}
+\end{table}
+
+\hiddensection{Выработка электронной цифровой подписи}\label{TEST.Sign}
+
+В таблице~\ref{Table.TEST.Sign} представлен пример выработки ЭЦП.
+%
+Используются параметры эллиптической кривой, 
+заданные в таблице~\ref{Table.STD.StdCurve128},
+и личный ключ, заданный в таблице~\ref{Table.TEST.GenKeyPair}. 
+%
+В качестве~$h$ используется функция,
+заданная алгоритмом~\algname{belt-hash}.
+
+\begin{table}[!h]
+\caption{Выработка электронной цифровой подписи}\label{Table.TEST.Sign}
+{\small
+\begin{tabular}{|l|l|}
+\hline
+$\phantom{\langle}X$ & 
+$\texttt{B194BAC8~0A08F53B~366D008E~58}_{16}$\\
+%
+\hline
+\hline
+$\phantom{\langle}H$ & 
+$\texttt{ABEF9725~D4C5A835~97A367D1~4494CC25~42F20F65~9DDFECC9~61A3EC55~0CBA8C75}_{16}$\\
+%
+\hline
+$\langle k\rangle_{256}$ & 
+$\texttt{4C0E74B2~CD5811AD~21F23DE7~E0FA742C~3ED6EC48~3C461CE1~5C33A77A~A308B7D2}_{16}$\\
+%
+\hline
+$\langle x_R\rangle_{256}$ & 
+$\texttt{CCEEF1A3~13A40664~9D15DA0A~851D486A~695B641B~20611776~252FFDCE~39C71060}_{16}$\\
+%
+\hline
+$\langle y_R\rangle_{256}$ & 
+$\texttt{7C9EA1F3~3C23D20D~FCB8485A~88BE6523~A28ECC32~15B47FA2~89D6C9BE~1CE837C0}_{16}$\\
+%
+\hline
+$\phantom{\langle}S_0$ & 
+$\texttt{E36B7F03~77AE4C52~4027C387~FADF1B20}_{16}$\\
+%
+\hline
+$\phantom{\langle}S_1$ & 
+$\texttt{CE72F153~0B71F2B5~FD3A8C58~4FE2E1AE~D20082E3~0C8AF650~11F4FB54~649DFD3D}_{16}$\\
+%
+\hline
+\hline
+$\phantom{\langle}S$ & 
+$\texttt{E36B7F03~77AE4C52~4027C387~FADF1B20~CE72F153~0B71F2B5~FD3A8C58~4FE2E1AE}$\\
+& 
+$\texttt{D20082E3~0C8AF650~11F4FB54~649DFD3D}_{16}$\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\hiddensection{Проверка электронной цифровой подписи}\label{TEST.Verify}
+
+В таблице~\ref{Table.TEST.Verify} представлен пример проверки ЭЦП.
+%
+Используются параметры эллиптической кривой, 
+заданные в таблице~\ref{Table.STD.StdCurve128},
+и открытый ключ, заданный в таблице~\ref{Table.TEST.GenKeyPair}. 
+%
+В качестве~$h$ используется функция,
+заданная алгоритмом~\algname{belt-hash}.
+
+\clearpage
+
+\begin{table}[!h]
+\caption{Проверка ЭЦП}\label{Table.TEST.Verify}
+{\small
+\begin{tabular}{|l|l|}
+\hline
+$\phantom{\langle}X$ & 
+$\texttt{B194BAC8~0A08F53B~366D008E~584A5DE4~8504FA9D~1BB6C7AC~252E72C2~02FDCE0D}$\\
+&
+$\texttt{5BE3D612~17B96181~FE6786AD~716B890B}_{16}$\\
+%
+\hline
+$\phantom{\langle}S$ & 
+$\texttt{47A63C8B~9C936E94~B5FAB3D9~CBD78366~290F3210~E163EEC8~DB4E921E~8479D413}$\\
+&
+$\texttt{8F112CC2~3E6DCE65~EC5FF21D~F4231C28}_{16}$\\
+\hline
+\hline
+%
+$\phantom{\langle}H$ & 
+$\texttt{9D02EE44~6FB6A29F~E5C982D4~B13AF9D3~E90861BC~4CEF27CF~306BFB0B~174A154A}_{16}$\\
+%
+\hline
+$\phantom{\langle}S_0$ & 
+$\texttt{47A63C8B~9C936E94~B5FAB3D9~CBD78366}_{16}$\\
+%
+\hline
+$\phantom{\langle}S_1$ & 
+$\texttt{290F3210~E163EEC8~DB4E921E~8479D413~8F112CC2~3E6DCE65~EC5FF21D~F4231C28}_{16}$\\
+%
+\hline
+$\langle x_R\rangle_{256}$ & 
+$\texttt{1D5A382B~962D4ED0~6193258C~A6DE535D~8FD7FACB~853171E9~32EF93B5~EE800120}_{16}$\\
+%
+\hline
+$\langle y_R\rangle_{256}$ & 
+$\texttt{03DBB7B5~BD070363~80BAFA47~FCA7E6CA~3F179EDD~D1AE5086~64790918~3628EDDC}_{16}$\\
+\hline
+$\phantom{\langle}t$ & 
+$\texttt{47A63C8B~9C936E94~B5FAB3D9~CBD78366}_{16}$\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+Условие~$S_0=t$ выполняется, 
+и алгоритм возвращает~\texttt{ДА}.
+
+\hiddensection{Создание токена ключа}\label{TEST.TokenWrap}
+
+В таблице~\ref{Table.TEST.TokenWrap} представлен пример создания токена ключа.
+%
+Используются параметры эллиптической кривой, 
+заданные в таблице~\ref{Table.STD.StdCurve128},
+и открытый ключ, заданный в таблице~\ref{TEST.GenKeyPair}.
+
+\begin{table}[!h]
+\caption{Создание токена ключа}\label{Table.TEST.TokenWrap}
+{\small
+\begin{tabular}{|l|l|}
+%
+\hline
+$\phantom{\langle}X$ & 
+$\texttt{B194BAC8~0A08F53B~366D008E~584A5DE4~8504}_{16}$\\
+%
+\hline
+$\phantom{\langle}I$ & 
+$\texttt{5BE3D612~17B96181~FE6786AD~716B890B}_{16}$\\
+%
+\hline
+\hline
+$\langle k\rangle_{256}$ & 
+$\texttt{0F51D913~47617C20~BD4AB07A~EF4F26A1~AD1362A8~F9A3D42F~BE1B8E6F~1C88AAD5}_{16}$\\
+%
+\hline
+$\langle x_R\rangle_{256}$ & 
+$\texttt{9B4EA669~DABDF100~A7D4B6E6~EB76EE52~51912531~F426750A~AC8A9DBB~51C54D8D}_{16}$\\
+%
+\hline
+$\langle y_R\rangle_{256}$ & 
+$\texttt{6AB7DBF1~5FCBD768~EE68A173~F7B236EF~C15A01E2~AA6CD1FE~98B947DA~7B38A2A0}_{16}$\\
+%
+\hline
+$\phantom{\langle}\theta$ & 
+$\texttt{11B3A639~83BCCB6D~32C5943F~66F01D4C~EA8CEE35~E4A6AE98~B1407C53~674317AC}_{16}$\\
+%
+\hline
+\hline
+$\phantom{\langle}Y$ & 
+$\texttt{9B4EA669~DABDF100~A7D4B6E6~EB76EE52~51912531~F426750A~AC8A9DBB~51C54D8D}$\\
+&
+$\texttt{EB9289B5~0A46952D~0531861E~45A8814B~008FDC65~DE9FF1FA~2A1F16B6~A280E957}$\\
+& 
+$\texttt{A814}_{16}$\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\hiddensection{Разбор токена ключа}\label{TEST.TokenUnwrap}
+
+В таблице~\ref{Table.TEST.TokenUnwrap} представлен пример разбора токена ключа.
+%
+Используются параметры эллиптической кривой, 
+заданные в таблице~\ref{Table.STD.StdCurve128},
+и личный ключ, заданный в таблице~\ref{Table.TEST.GenKeyPair}.
+
+\clearpage
+
+\begin{table}[!h]
+\caption{Разбор токена ключа}\label{Table.TEST.TokenUnwrap}
+{\small
+\begin{tabular}{|l|l|}
+%
+\hline
+$\phantom{\langle}Y$ & 
+$\texttt{4856093A~0F6C1301~5FC8E15F~1B23A762~02D2F4BA~6E5EC52B~78658477~F6486DE6}$\\
+&
+$\texttt{87AFAEEA~0EF7BC13~26A7DCE7~A10BA10E~3F91C012~6044B222~67BF30BD~6F1DA29E}$\\
+&
+$\texttt{0647CF39~C1D59A56~BB0194E0~F4F8A2BB}_{16}$\\
+%
+\hline
+$\phantom{\langle}I$ & 
+$\texttt{E12BDC1A~E28257EC~703FCCF0~95EE8DF1}_{16}$\\
+%
+\hline
+\hline
+$\langle x_R\rangle_{256}$ & 
+$\texttt{4856093A~0F6C1301~5FC8E15F~1B23A762~02D2F4BA~6E5EC52B~78658477~F6486DE6}_{16}$\\
+%
+\hline
+$\phantom{\langle}Y_1$ & 
+$\texttt{87AFAEEA~0EF7BC13~26A7DCE7~A10BA10E~3F91C012~6044B222~67BF30BD~6F1DA29E}$\\
+&
+$\texttt{0647CF39~C1D59A56~BB0194E0~F4F8A2BB}_{16}$\\
+%
+\hline
+$\langle y_R\rangle_{256}$ & 
+$\texttt{DA4FE935~574DA2F0~117AFE25~971DFD62~9D985CE9~E4F1052C~66445686~2C83CD37}_{16}$\\
+%
+\hline
+$\phantom{\langle}\theta$ & 
+$\texttt{3E2D4915~38A58FA5~108CF809~85222670~661794AB~2423E410~9E785A22~D1529BC6}_{16}$\\
+\hline
+\hline
+$\phantom{\langle}X$ & 
+$\texttt{B194BAC8~0A08F53B~366D008E~584A5DE4~8504FA9D~1BB6C7AC~252E72C2~02FDCE0D}_{16}$\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\hiddensection{Генерация одноразового личного ключа}\label{TEST.GENK}
+
+В таблицах~\ref{Table.TEST.GENK}, \ref{Table.TEST.GENK1} 
+представлены примеры генерации одноразового личного ключа.
+%
+Используется число~$q$, заданное в таблице~\ref{Table.STD.StdCurve128},
+и личный ключ~$d$, заданный в таблице~\ref{Table.TEST.GenKeyPair}.
+%
+%
+В качестве~$h$ используется функция,
+заданная алгоритмом~\algname{belt-hash}.
+
+\begin{table}[!h]
+\caption{Генерация одноразового ключа ($t$~--- пустое слово)}
+\label{Table.TEST.GENK}
+{\small
+\begin{tabular}{|l|l|}
+%
+\hline
+$\phantom{\langle}H$ & 
+$\texttt{ABEF9725~D4C5A835~97A367D1~4494CC25~42F20F65~9DDFECC9~61A3EC55~0CBA8C75}_{16}$\\
+%
+\hline
+\hline
+$\phantom{\langle}\theta$ & 
+$\texttt{D61E3A91~0550E3BC~AD5BF4F5~26FB8DAA~DEA9C132~E0BAEE03~169DF4DF~9BD6C20C}_{16}$\\
+%
+\hline
+\hline
+$\langle k\rangle_{256}$ & 
+%
+$\texttt{829614D8~411DBBC4~E1F2471A~40045864~40FD8C95~53FAB6A1~A45CE417~AE97111E}_{16}$
+\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[!h]
+\caption{Генерация одноразового ключа}
+\label{Table.TEST.GENK1}
+{\small
+\begin{tabular}{|l|l|}
+%
+\hline
+$\phantom{\langle}H$ & 
+$\texttt{9D02EE44~6FB6A29F~E5C982D4~B13AF9D3~E90861BC~4CEF27CF~306BFB0B~174A154A}_{16}$\\
+%
+\hline
+\hline
+$\phantom{\langle}t$ & 
+$\texttt{BE329713~43FC9A48~A02A885F~194B09A1~7ECDA4D0~1544AF}_{16}$\\
+%
+\hline
+$\phantom{\langle}\theta$ & 
+$\texttt{AE443163~32A85C3B~9F6B31EE~EADFF088~D30FE507~021AC86A~3EC8E087~4ED33648}_{16}$\\
+%
+\hline
+\hline
+$\langle k\rangle_{256}$ & 
+%
+$\texttt{7ADC8713~283EBFA5~47A2AD9C~DFB245AE~0F7B968D~F0F91CB7~85D1F932~A3583107}_{16}$
+\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\hiddensection{Идентификационная электронная цифровая подпись}
+\label{TEST.IBS}
+
+В таблицах~\ref{Table.TEST.IdExtract}~--- \ref{Table.TEST.IdVerify} 
+представлены примеры извлечения пары ключей, выработки и проверки 
+ИЭЦП.
+%
+Используются параметры эллиптической кривой, 
+заданные в таблице~\ref{Table.STD.StdCurve128},
+и открытый ключ~$Q$, 
+заданный в таблице~\ref{Table.TEST.GenKeyPair}.
+%
+В качестве~$h$ используется функция,
+заданная алгоритмом~\algname{belt-hash}.
+%
+Ключи~$e$, $R$ из таблицы~\ref{Table.TEST.IdExtract}
+используются в примерах из таблиц~\ref{Table.TEST.IdSign}, 
+\ref{Table.TEST.IdVerify}.
+
+\clearpage
+
+\begin{table}[!h]
+\caption{Извлечение пары ключей}\label{Table.TEST.IdExtract}
+{\small
+\begin{tabular}{|l|l|}
+\hline
+$\phantom{\langle}Id$ & 
+$\texttt{B194BAC8~0A08F53B~366D008E~58}_{16}$\\
+%
+\hline
+$\phantom{\langle}S$ & 
+$\texttt{E36B7F03~77AE4C52~4027C387~FADF1B20~CE72F153~0B71F2B5~FD3A8C58~4FE2E1AE}$\\
+& 
+$\texttt{D20082E3~0C8AF650~11F4FB54~649DFD3D}_{16}$\\
+%
+\hline
+\hline
+$\langle e\rangle_{256}$ & 
+$\texttt{79628979~DF369BEB~94DEF329~9476AED4~14F39148~AA69E31A~7397E8AA~70578AB3}_{16}$\\
+%
+\hline
+$\langle x_R\rangle_{256}$ & 
+$\texttt{CCEEF1A3~13A40664~9D15DA0A~851D486A~695B641B~20611776~252FFDCE~39C71060}_{16}$\\
+%
+\hline
+$\langle y_R\rangle_{256}$ & 
+$\texttt{7C9EA1F3~3C23D20D~FCB8485A~88BE6523~A28ECC32~15B47FA2~89D6C9BE~1CE837C0}_{16}$\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[!h]
+\caption{Выработка идентификационной электронной цифровой подписи}
+\label{Table.TEST.IdSign}
+{\small
+\begin{tabular}{|l|l|}
+\hline
+$\phantom{\langle}Id$ & 
+$\texttt{B194BAC8~0A08F53B~366D008E~58}_{16}$\\
+%
+\hline
+$\phantom{\langle}X$ & 
+$\texttt{5BE3D612~17B96181~FE6786AD~716B890B}_{16}$\\
+%
+\hline
+\hline
+$\phantom{\langle}H_0$ & 
+$\texttt{ABEF9725~D4C5A835~97A367D1~4494CC25~42F20F65~9DDFECC9~61A3EC55~0CBA8C75}_{16}$\\
+%
+\hline
+$\phantom{\langle}H$ & 
+$\texttt{8CAC3CF6~7106FFEF~54C55DA7~65D207A5~D6B47FD6~9B894DF1~A17DC067~608B9362}_{16}$\\
+%
+\hline
+$\langle k\rangle_{256}$ & 
+$\texttt{C431B41B~BE8E8022~88737ACF~45A29251~FC736A3C~6F478F77~A7ED271D~5EEDAA58}_{16}$\\
+%
+\hline
+$\langle x_V\rangle_{256}$ & 
+$\texttt{88573C0E~A51BC6EE~2EAC6EF1~BD74B862~FD73805C~EAD484E3~C4FE02C5~BF2056EA}_{16}$\\
+%
+\hline
+$\langle y_V\rangle_{256}$ & 
+$\texttt{FAFA4DF2~2B69D948~8B310A4B~A3BEACE9~CA5D8E5C~D187790F~D9357B34~7D4B17E5}_{16}$\\
+%
+\hline
+$\phantom{\langle}S_0$ & 
+$\texttt{1697FE6A~073D3B28~C9D0DD83~2A169D7B}_{16}$\\
+%
+\hline
+$\phantom{\langle}S_1$ & 
+$\texttt{8D342FDC~47BC8AAE~B6226448~956E22D6~CC73B62C~B21B66E5~C8DE0A3E~234FB0C6}_{16}$\\
+%
+\hline
+\hline
+$\phantom{\langle}S$ & 
+$\texttt{1697FE6A~073D3B28~C9D0DD83~2A169D7B~8D342FDC~47BC8AAE~B6226448~956E22D6}$\\
+&
+$\texttt{CC73B62C~B21B66E5~C8DE0A3E~234FB0C6}_{16}$\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[!h]
+\caption{Проверка идентификационной электронной цифровой подписи}
+\label{Table.TEST.IdVerify}
+{\small
+\begin{tabular}{|l|l|}
+\hline
+$\phantom{\langle}Id$ & 
+$\texttt{B194BAC8~0A08F53B~366D008E~58}_{16}$\\
+%
+\hline
+$\phantom{\langle}X$ & 
+$\texttt{5BE3D612~17B96181~FE6786AD~716B890B~5CB0C0FF~33C356}_{16}$\\
+%
+\hline
+$\phantom{\langle}S$ & 
+$\texttt{31CBA14F~C2D79AFC~D8F50E29~F993FC2C~B270BD0A~79D534B3~B1207914~00C8BB18}$\\
+&
+$\texttt{50AD6D3C~78047FCB~46F18608~AC7006AA}_{16}$\\
+\hline
+\hline
+$\phantom{\langle}H_0$ & 
+$\texttt{ABEF9725~D4C5A835~97A367D1~4494CC25~42F20F65~9DDFECC9~61A3EC55~0CBA8C75}_{16}$\\
+%
+\hline
+$\phantom{\langle}H$ & 
+$\texttt{3A443648~6039352C~BE3370D7~A899F5FA~DB5E583D~B8A49FB2~7DCC588F~32D6F344}_{16}$\\
+%
+\hline
+$\langle x_V\rangle_{256}$ & 
+$\texttt{8B3A7766~33C119A0~C6EE9828~BCE4FC56~A806A547~18FAB30B~3DB3B564~39FACAF4}_{16}$\\
+%
+\hline
+$\langle y_V\rangle_{256}$ & 
+$\texttt{26EAF9E5~6A8C0E1F~ABDB7114~E10594E4~7DE490C4~45998002~B8E26D2C~AABF91AC}_{16}$\\
+\hline
+$\phantom{\langle}t$ (шаг 10) & 
+$\texttt{31CBA14F~C2D79AFC~D8F50E29~F993FC2C}_{16}$\\
+\hline
+\end{tabular}
+}
+\end{table}
+
+\end{appendix}
+
