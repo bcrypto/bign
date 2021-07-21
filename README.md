@@ -2,7 +2,7 @@
 
 ![](figs/bign-logo-small.png)
 
-[![Build LaTeX](https://github.com/bcrypto/bign/actions/workflows/build.yaml/badge.svg)](https://github.com/bcrypto/bign/actions/workflows/build.yaml)
+[![build](https://github.com/bcrypto/bign/actions/workflows/build.yaml/badge.svg)](https://github.com/bcrypto/bign/actions/workflows/build.yaml)
 
 ## What is Bign?
 
