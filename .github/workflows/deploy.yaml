@@ -1,4 +1,4 @@
-name: Deploy
+name: deploy
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@master
-      - name: Build
+      - name: Build LaTeX
         uses: xu-cheng/latex-action@v2
         with:
           root_file: bign.tex
@@ -29,7 +29,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: bign
-      - name: Create Release
+      - name: Create release
         id: create_release
         uses: actions/create-release@v1
         env:
