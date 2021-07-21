@@ -21,8 +21,3 @@ jobs:
           root_file: bign.tex
           working_directory: spec/
           args: -jobname=bign -pdf -file-line-error -halt-on-error -interaction=nonstopmode
-      - name: Upload pdf
-        uses: actions/upload-artifact@v2
-        with:
-          name: bign
-          path: spec/bign.pdf

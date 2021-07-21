@@ -1,6 +1,8 @@
-# Bign: digital signature and key transport algorithms based on elliptic curves
+# Bign: digital signature and key transport algorithms
 
 ![](figs/bign-logo-small.png)
+
+[![Build LaTeX](https://github.com/bcrypto/bign/actions/workflows/build.yaml/badge.svg)](https://github.com/bcrypto/bign/actions/workflows/build.yaml)
 
 ## What is Bign?
 
