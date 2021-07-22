@@ -33,26 +33,31 @@ def tohex(n):
 t = []
 
 def verify_table(filename):
+	count = 0
 	with open(filename) as f:
 		# read table
 		while True:
 			line = f.readline()
-			assert(line)
+			if not line:
+				break
 			if not line.startswith('|-'):
 				continue
-			for i in range(50):
+			while True:
 				line = f.readline()
-				assert(line)
+				if not line.startswith('| '):
+					break
+				count = count + 1
 				row = line.strip().replace(' ', '').split('|')[1:-1]
-				assert(int(row[0]) == i + 1)
+				assert(int(row[0]) == count)
 				assert(tohex(int(row[1])) == row[2])
 				t.append(row[2:])
 			break
+	return count
 
-def verify_sections(filename):
+def verify_sections(filename, count):
 	i = 0
 	with open(filename) as f:
-		while i < 50:
+		while i < count:
 			# find section #i
 			line = f.readline()
 			assert(line)
@@ -93,5 +98,6 @@ def verify_sections(filename):
 			i = i + 1
 
 if __name__ == '__main__':
-	verify_table(sys.argv[1])
-	verify_sections(sys.argv[1])
+	count = verify_table(sys.argv[1])
+	verify_sections(sys.argv[1], count)
+	
