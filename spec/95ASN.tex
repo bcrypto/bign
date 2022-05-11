@@ -6,37 +6,37 @@
 Алгоритмам стандарта присваиваются следующие идентификаторы:
 \begin{center}
 \begin{tabular}{p{4.2cm}p{11.8cm}}
-\texttt{bign-with-hspec} &
+\algname{bign-with-hspec} &
 алгоритмы ЭЦП (\ref{SIGN}) c функцией хэширования, 
 определяемой долговременными параметрами;\\
 %
-\texttt{bign-with-hbelt} &
+\algname{bign-with-hbelt} &
 алгоритмы ЭЦП (\ref{SIGN}) c функцией хэширования,
 заданной алгоритмом~\algname{belt-hash};\\
 %
-\texttt{bign-genec} &
+\algname{bign-genec} &
 алгоритм генерации параметров эллиптической кривой (\ref{GENEC});\\
 %
-\texttt{bign-valec} &
+\algname{bign-valec} &
 алгоритм проверки параметров эллиптической кривой (\ref{VALEC});\\
 %
-\texttt{bign-genkeypair} &
+\algname{bign-genkeypair} &
 алгоритм генерации пары ключей (\ref{GENKEYPAIR});\\
 %
-\texttt{bign-valpubkey} &
+\algname{bign-valpubkey} &
 алгоритм проверки открытого ключа (\ref{VALPUBKEY});\\
 %
-\texttt{bign-keytransport} &
+\algname{bign-keytransport} &
 алгоритмы транспорта ключа (\ref{TRANSPORT});\\
 %
-\texttt{bign-genk} &
+\algname{bign-genk} &
 алгоритм генерации одноразового личного ключа (\ref{GENK.Alg});\\
 %
-\texttt{bign-ibs-with-hspec} &
+\algname{bign-ibs-with-hspec} &
 алгоритмы ИЭЦП (\ref{IBS.Algs}) 
 c функцией хэширования, определяемой долговременными параметрами;\\
 %
-\texttt{bign-ibs-with-hbelt} &
+\algname{bign-ibs-with-hbelt} &
 алгоритмы ИЭЦП (\ref{IBS.Algs}) 
 c функцией хэширования, заданной алгоритмом~\algname{belt-hash}.\\
 \end{tabular}
@@ -50,7 +50,7 @@ c функцией хэширования, заданной алгоритмом
 функции хэширования должны соответствовать друг другу.
 
 Открытому ключу, который вырабатывается по алгоритму~\ref{GENKEYPAIR}, 
-присваивается идентификатор \texttt{bign-pubkey}.
+присваивается идентификатор \algname{bign-pubkey}.
 Открытый ключ может использоваться в алгоритмах ЭЦП 
 и (или) транспорта ключа.
 
@@ -58,13 +58,13 @@ c функцией хэширования, заданной алгоритмом
 заданным в приложении~\ref{STD}, присваиваются следующие идентификаторы:
 \begin{center}
 \begin{tabular}{p{4.2cm}p{11.8cm}}
-\texttt{bign-curve256v1} &
+\algname{bign-curve256v1} &
 параметры, определенные в таблице~\ref{Table.STD.StdCurve128};\\
 %
-\texttt{bign-curve384v1} &
+\algname{bign-curve384v1} &
 параметры, определенные в таблице~\ref{Table.STD.StdCurve192};\\
 %
-\texttt{bign-curve512v1} &
+\algname{bign-curve512v1} &
 параметры, определенные в таблице~\ref{Table.STD.StdCurve256}.\\
 \end{tabular}
 \end{center}
@@ -72,7 +72,7 @@ c функцией хэширования, заданной алгоритмом
 \hiddensection{Параметры алгоритмов}\label{ASN.Params}
 
 Идентификаторы алгоритмов ЭЦП, транспорта ключа и~ИЭЦП могут 
-указываться в компоненте~\texttt{algorithm} следующего типа~АСН.1:
+указываться в компоненте~\algname{algorithm} следующего типа~АСН.1:
 \begin{verbatim}
 AlgorithmIdentifier ::= SEQUENCE {
   algorithm   OBJECT IDENTIFIER,
@@ -81,51 +81,51 @@ AlgorithmIdentifier ::= SEQUENCE {
 \end{verbatim}
 
 Этот тип описывает, например, 
-компоненты с именами~\texttt{signatureAlgorithm} 
-и~\texttt{signature} в определениях форматов
+компоненты с именами~\algname{signatureAlgorithm} 
+и~\algname{signature} в определениях форматов
 запроса на получение сертификата (СТБ~34.101.17),
 сертификатов и списка отозванных сертификатов (СТБ~34.101.19), 
 подписанных данных (СТБ~34.101.23),
 запроса и ответа о статусе сертификата (СТБ~34.101.26).
 %
-Во всех перечисленных случаях, если в~\texttt{algorithm} установлен
-идентификатор~\texttt{bign-with-hspec}, то в~\texttt{parameters} 
+Во всех перечисленных случаях, если в~\algname{algorithm} установлен
+идентификатор~\algname{bign-with-hspec}, то в~\algname{parameters} 
 должен быть задан идентификатор используемой функции хэширования~$h$. 
 %
-Если же в~\texttt{algorithm} установлен 
-идентификатор~\texttt{bign-with-hbelt},
-то~\texttt{parameters} должен равняться~\texttt{NULL},
+Если же в~\algname{algorithm} установлен 
+идентификатор~\algname{bign-with-hbelt},
+то~\algname{parameters} должен равняться~\algname{NULL},
 а~$h$ определяться алгоритмом~\algname{belt-hash}.
 
-Тип~\texttt{AlgorithmIdentifier} описывает также компоненты 
-с именами \texttt{keyEncryptionAlgorithm} в определениях форматов
+Тип~\algname{AlgorithmIdentifier} описывает также компоненты 
+с именами \algname{keyEncryptionAlgorithm} в определениях форматов
 конвертованных, аутентифицируемых и аутентифицируемых 
 конвертованных данных (СТБ~34.101.23). 
 Эти компоненты определяют способ защиты
 ключей шифрования и имитозащиты данных. 
 %
 Если для защиты используются алгоритмы транспорта ключа
-[в \texttt{RecipientInfo} выбран компонент \texttt{ktri}, 
+[в \algname{RecipientInfo} выбран компонент \algname{ktri}, 
 см. СТБ~34.101.23 (пункт 9.3)],
-а в~\texttt{algorithm} установлен идентификатор~\texttt{bign-keytransport},
-то~\texttt{parameters} должен равняться~\texttt{NULL},
+а в~\algname{algorithm} установлен идентификатор~\algname{bign-keytransport},
+то~\algname{parameters} должен равняться~\algname{NULL},
 а заголовок~$I$ транспортируемого ключа полагаться равным~$0^{128}$.
 
 \hiddensection{Описание двоичных слов}\label{ASN.Words}
 
 Слово~$u\in\{0,1\}^{8*}$ может описываться строкой битов
-(\texttt{BIT STRING}), последовательными 
+(\algname{BIT STRING}), последовательными 
 [от первого к замыкающему, см. ГОСТ 34.973 (раздел~15)]
 элементами которой являются последовательные символы~$u$.
 %
 Слово~$u$ может также описываться строкой октетов 
-(\texttt{OCTET STRING}), составленной из последовательных 
+(\algname{OCTET STRING}), составленной из последовательных 
 октетов~$u$.
 
 Указанные описания~$u$ согласованы между собой. 
 Например, при кодировании~$u$ по правилам ГОСТ 34.974 
-содержимое~$u$ как \texttt{BIT STRING} отличается
-от содержимого~$u$ как~\texttt{OCTET~STRING} 
+содержимое~$u$ как \algname{BIT STRING} отличается
+от содержимого~$u$ как~\algname{OCTET~STRING} 
 только нулевым октетом-префиксом.
 
 \hiddensection{Описание конечного поля и его элементов}\label{ASN.Field}
@@ -139,10 +139,10 @@ FieldID ::= SEQUENCE {
 }
 \end{verbatim}
 
-Компонент~\texttt{fieldType} этого типа определяет вид поля.
+Компонент~\algname{fieldType} этого типа определяет вид поля.
 Примененный синтаксис обязывает использовать только простые 
-конечные поля, которым назначен идентификатор~\texttt{bign-primefield}.
-Компонент~\texttt{parameters} описывает модуль~$p$ поля~$\FF_p$.
+конечные поля, которым назначен идентификатор~\algname{bign-primefield}.
+Компонент~\algname{parameters} описывает модуль~$p$ поля~$\FF_p$.
 
 На уровне стойкости~$l$
 элемент~$u$ поля~$\FF_p$ должен представляться строкой 
@@ -160,16 +160,13 @@ DomainParameters ::= CHOICE {
 }
 \end{verbatim}
 
-Выбор компонента~\texttt{specified} означает
-явное задание параметров. 
+Выбор компонента~\algname{specified} означает явное задание параметров. 
 %
-Компонент~\texttt{named} используется для
-ссылки на именованные параметры, заданные в приложении~\ref{STD} или 
-в другом документе.
+Компонент~\algname{named} используется для ссылки на именованные параметры, 
+заданные в приложении~\ref{STD} или в другом документе.
 %
-Компонент~\texttt{implicit} используется 
-для указания на то, что наследуются параметры внешнего источника,
-например удостоверяющего центра.
+Компонент~\algname{implicit} используется для указания на то, что наследуются
+параметры внешнего источника, например удостоверяющего центра.
 
 Явно задаваемые параметры представляются значениями типа
 \begin{verbatim}
@@ -183,21 +180,21 @@ ECParameters ::= SEQUENCE {
 }
 \end{verbatim}
 
-Компонент~\texttt{version} указывает на версию данного типа АСН.1.
+Компонент~\algname{version} указывает на версию данного типа АСН.1.
 Примененный синтаксис обязывает использовать версию~$1$,
-которая обозначена через~\texttt{ecpVer1}.
+которая обозначена через~\algname{ecpVer1}.
 %
-Компонент~\texttt{fieldID} описывает поле~$\FF_p$, 
+Компонент~\algname{fieldID} описывает поле~$\FF_p$, 
 над которым строится эллиптическая кривая.
 %
-Компонент~\texttt{curve} описывает уравнение эллиптической кривой.
+Компонент~\algname{curve} описывает уравнение эллиптической кривой.
 %
-Компонент~\texttt{base} описывает базовую точку эллиптической кривой.
+Компонент~\algname{base} описывает базовую точку эллиптической кривой.
 %
-Компонент~\texttt{order} описывает порядок~$q$ 
+Компонент~\algname{order} описывает порядок~$q$ 
 группы точек эллиптической кривой.
 %
-Необязательный компонент~\texttt{cofactor} описывает отношение
+Необязательный компонент~\algname{cofactor} описывает отношение
 порядка всей группы точек эллиптической кривой к порядку группы, 
 порожденной базовой точкой.                        
 Это отношение (кофактор) для эллиптических кривых
@@ -242,16 +239,16 @@ SubjectPublicKeyInfo ::= SEQUENCE {
 }
 \end{verbatim}
 
-Компонент~\texttt{algorithm} этого типа 
+Компонент~\algname{algorithm} этого типа 
 описывает свойства открытого ключа.
-Компонент~\texttt{subjectPublicKey} 
+Компонент~\algname{subjectPublicKey} 
 описывает значение открытого ключа.
 
 Для описания свойств открытого ключа в компоненте
-\texttt{algorithm}, вложенном в~\texttt{AlgorithmIdentifier},
-должен быть установлен идентификатор~\texttt{bign-pubkey},
-а в компоненте~\texttt{parameters}~--- значение 
-типа~\texttt{DomainParameters}.
+\algname{algorithm}, вложенном в~\algname{AlgorithmIdentifier},
+должен быть установлен идентификатор~\algname{bign-pubkey},
+а в компоненте~\algname{parameters}~--- значение 
+типа~\algname{DomainParameters}.
 
 %\hiddensection{Описание личного ключа}
 %
@@ -266,24 +263,24 @@ SubjectPublicKeyInfo ::= SEQUENCE {
 %}
 %\end{verbatim}
 %
-%Компонент~\texttt{version} указывает на версию данного типа АСН.1.
+%Компонент~\algname{version} указывает на версию данного типа АСН.1.
 %Примененный синтаксис обязывает использовать версию~$1$,
-%которая обозначена через~\texttt{ecpkVer1}.
+%которая обозначена через~\algname{ecpkVer1}.
 %%
-%Компонент~\texttt{privateKey} описывает значение личного ключа.
-%Необязательные компоненты \texttt{parameters}, \texttt{publicKey}
+%Компонент~\algname{privateKey} описывает значение личного ключа.
+%Необязательные компоненты \algname{parameters}, \algname{publicKey}
 %определяются так же, как в~\ref{ASN.PubKey}.
 %
 %На уровне стойкости~$l$ личному ключу~$d$ ставится в соответствие 
 %двоичное слово~$\langle d\rangle_{2l}$,
 %которое разбивается на~$l/4$ последовательных октетов.
 %Полученная строка октетов определяет значение
-%компонента~\texttt{privateKey}.
+%компонента~\algname{privateKey}.
 
-%Тип \texttt{PrivateKey} может быть использован для описания личного 
+%Тип \algname{PrivateKey} может быть использован для описания личного 
 %ключа при помощи синтаксиса PKCS\#8. При этом должен использоваться тип 
-%\texttt{PrivateKeyInfo} и компонент \texttt{privateKeyAlgorithm} этого
-%типа должен принимать значение \texttt{bign-pubkey}.
+%\algname{PrivateKeyInfo} и компонент \algname{privateKeyAlgorithm} этого
+%типа должен принимать значение \algname{bign-pubkey}.
 
 \hiddensection{Описание электронной цифровой подписи}
 \label{ASN.Sign}
@@ -298,20 +295,20 @@ SignatureValue ::= OCTET STRING (SIZE(48|72|96))
 В запросе на получение сертификата (СТБ~34.101.17),
 в сертификатах и списках отозванных сертификатов (СТБ~34.101.19),
 в запросе и ответе о статусе сертификата (СТБ~34.101.26)
-подпись должна представляться значением типа~\texttt{Signature}, 
+подпись должна представляться значением типа~\algname{Signature}, 
 а в подписанных данных (СТБ~34.101.23)~---
-значением типа~\texttt{SignatureValue}.
+значением типа~\algname{SignatureValue}.
 
 \hiddensection{Описание токена ключа}\label{ASN.Token}
 
-В алгоритмах транспорта \texttt{bign-keytransport}
+В алгоритмах транспорта \algname{bign-keytransport}
 токен ключа представляет собой двоичное слово, 
 длина которого кратна~$8$.
 
 В  определениях форматов конвертованных, аутентифицируемых 
 и аутентифицируемых конвертованных данных (СТБ~34.101.23)
 токен ключа должен устанавливаться 
-в компоненте~\texttt{encryptedKey} типа~\texttt{KeyTransRecipientInfo}
+в компоненте~\algname{encryptedKey} типа~\algname{KeyTransRecipientInfo}
 и описываться при этом строкой октетов.
 
 \hiddensection{Описание идентификационной электронной цифровой подписи}
@@ -331,12 +328,12 @@ IdSignatureValue ::= OCTET STRING (SIZE(112|168|224))
 форматы которых определены в СТБ~34.101.17, СТБ~34.101.19, 
 СТБ~34.101.23, СТБ~34.101.26.
 
-Тип~\texttt{ECParameters} соответствует одноименному типу,
+Тип~\algname{ECParameters} соответствует одноименному типу,
 определенному в~\cite{ANSI9.62}, со следующими уточнениями:
 \begin{enumerate}
 \item
-Простое конечное поле описывается идентификатором~\texttt{bign-primefield} 
-вместо  идентификатора \texttt{\{iso(1) member-body(2) us(840) 10045 
+Простое конечное поле описывается идентификатором~\algname{bign-primefield} 
+вместо  идентификатора \algname{\{iso(1) member-body(2) us(840) 10045 
 4 1 field-type(1) 1\}} в~\cite{ANSI9.62}.
 
 \item
@@ -347,91 +344,22 @@ IdSignatureValue ::= OCTET STRING (SIZE(112|168|224))
 принятым в~\cite{ANSI9.62}.
 
 \item
-В компоненте~\texttt{base} задается только $y$-координата
+В компоненте~\algname{base} задается только $y$-координата
 базовой точки эллиптической кривой. Нулевая $x$-координата опускается.
 \end{enumerate}
 
-Тип~\texttt{DomainParameters} соответствует типу~\texttt{Parameters}, 
+Тип~\algname{DomainParameters} соответствует типу~\algname{Parameters}, 
 определенному в~\cite{ANSI9.62}.
 
-%Тип~\texttt{DomainParameters} соответствует типу~\texttt{Parameters} 
-%стандарта~\cite{ANSI9.62} и типу~\texttt{ECDomainParameters} 
+%Тип~\algname{DomainParameters} соответствует типу~\algname{Parameters} 
+%стандарта~\cite{ANSI9.62} и типу~\algname{ECDomainParameters} 
 %стандарта~\cite{SEC1}.
 
-%Тип~\texttt{ECPrivateKey} соответствует одноименному типу 
+%Тип~\algname{ECPrivateKey} соответствует одноименному типу 
 %стандарта~\cite{SEC1}.
 
 \hiddensection{Модуль АСН.1}\label{ASN.Module}
 
-\begin{verbatim}
-Bign-module-v2 {iso(1) member-body(2) by(112) 0 2 0 34 101 45 module(1) ver2(2)}
-DEFINITIONS ::=
-BEGIN
-  bign OBJECT IDENTIFIER ::= {iso(1) member-body(2) by(112) 0 2 0 34 101 45}
-  
-  bign-with-hspec OBJECT IDENTIFIER ::= {bign 11}
-  bign-with-hbelt OBJECT IDENTIFIER ::= {bign 12}
-  bign-genec OBJECT IDENTIFIER ::= {bign 21}
-  bign-valec OBJECT IDENTIFIER ::= {bign 22}
-  bign-genkeypair OBJECT IDENTIFIER ::= {bign 31}
-  bign-valpubkey OBJECT IDENTIFIER ::= {bign 32}
-  bign-keytransport OBJECT IDENTIFIER ::= {bign 41}
-  bign-genk OBJECT IDENTIFIER ::= {bign 61}
-  bign-ibs-with-hspec OBJECT IDENTIFIER ::= {bign 71}
-  bign-ibs-with-hbelt OBJECT IDENTIFIER ::= {bign 72}
+\verbatiminput{bign-module-v2.asn}
 
-  bign-keys OBJECT IDENTIFIER ::= {bign keys(2)}
-  bign-pubkey OBJECT IDENTIFIER ::= {bign-keys 1}
-
-  bign-curves OBJECT IDENTIFIER ::= {bign curves(3)}
-  bign-curve256v1 OBJECT IDENTIFIER ::= {bign-curves 1}
-  bign-curve384v1 OBJECT IDENTIFIER ::= {bign-curves 2}
-  bign-curve512v1 OBJECT IDENTIFIER ::= {bign-curves 3}
-
-  bign-fields OBJECT IDENTIFIER ::= {bign fields(4)}
-  bign-primefield OBJECT IDENTIFIER ::= {bign-fields prime(1)}
-
-  AlgorithmIdentifier ::= SEQUENCE {
-    algorithm   OBJECT IDENTIFIER,
-    parameters  ANY DEFINED BY algorithm OPTIONAL
-  }
-
-  DomainParameters ::= CHOICE {
-    specified  ECParameters,
-    named      OBJECT IDENTIFIER,
-    implicit   NULL
-  }
-
-  ECParameters ::= SEQUENCE {
-    version  INTEGER {ecpVer1(1)} (ecpVer1),
-    fieldID  FieldID,
-    curve    Curve,
-    base     OCTET STRING (SIZE(32|48|64)),
-    order    INTEGER,
-    cofactor INTEGER (1) OPTIONAL
-  }
-
-  FieldID ::= SEQUENCE {
-    fieldType   OBJECT IDENTIFIER (bign-primefield),
-    parameters  INTEGER
-  } 
-
-  Curve ::= SEQUENCE {
-    a     OCTET STRING (SIZE(32|48|64)),
-    b     OCTET STRING (SIZE(32|48|64)),
-    seed  BIT STRING (SIZE(64))
-  }
-
-  PublicKey ::= BIT STRING (SIZE(512|768|1024))
-
-  SubjectPublicKeyInfo ::= SEQUENCE {
-    algorithm         AlgorithmIdentifier,
-    subjectPublicKey  PublicKey
-  }
-
-  Signature ::= BIT STRING (SIZE(384|576|768))
-  SignatureValue ::= OCTET STRING (SIZE(48|72|96))
-  IdSignatureValue ::= OCTET STRING (SIZE(112|168|224))
-END             
-\end{verbatim}
 \end{appendix}
