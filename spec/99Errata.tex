@@ -106,8 +106,8 @@ $\hex{85D1F932~A3583107}$\\
 \hline
 Приложение~\ref{PASSWORD},\par
 пункт~\ref{PASSWORD.PBKDF.Alg},\par
-2-й и последующий шаги алгоритма &
-%
+2-й и последующий шаги алгоритма 
+&
 2~Для $i=1,2,\ldots,c$ выполнить:\par
 \mbox{}~~1)~$\theta\leftarrow\HMAC_{\algname{belt-hash}}(P,\theta)$.\par
 3~Возвратить~$\theta$.
@@ -121,16 +121,16 @@ $\hex{85D1F932~A3583107}$\\
 \hline
 Приложение~\ref{PASSWORD},\par
 таблица~\ref{Table.PASSWORD.TestPBKDF},\par
-строка~3 &
-%
-$\hexz{BE329713~43FC9A48~A02A885F}$ $\hex{194B09A1}$ &
-%
+строка~3 
+&
+$\hexz{BE329713~43FC9A48~A02A885F}$ $\hex{194B09A1}$ 
+&
 $\hex{BE329713~43FC9A48}$\\
 \hline
 Приложение~\ref{PASSWORD},\par
 таблица~\ref{Table.PASSWORD.TestPBKDF},\par
-строка~4 &
-%
+строка~4 
+&
 $\hexz{D9024724~82130F3B~77D09303}$ $\hexz{03DD7E4E~68630CC0~2B56A8B2}$
 $\hex{AFA74F09~6BCAC971}$
 &
@@ -140,8 +140,8 @@ $\hex{91BFE424~39A72E7D}$
 \hline
 Приложение~\ref{PASSWORD},\par
 таблица~\ref{Table.PASSWORD.TestPBKDF},\par
-строки 5, 6 &
-%
+строки 5, 6 
+&
 $\hexz{248E0CD7~639B1237~76F1CEC1}$ $\hexz{FCECE708~C2DFC53F~78ECEA6C}$
 $\hexz{33B4C3C1~E6183AD6~D8A18CFA}$ $\hex{F540976E~1022B89D~BA32DA18}$
 &
@@ -151,7 +151,8 @@ $\hexz{D5C3E909~CF4C14F0~7B8204E6}$ $\hex{7841A165~E924945C~D07F37E7}$
 \hline
 Приложение~\ref{PASSWORD},\par
 пункт~\ref{PASSWORD.Ids},\par
-последний абзац &
+последний абзац 
+&
 Вложенный в \algname{encryptionScheme} компонент \algname{algorithm}
 должен принимать значение \algname{belt-keywrap256},
 а компонент \algname{parameters}~--- значение \algname{NULL}.
@@ -162,6 +163,44 @@ $\hexz{D5C3E909~CF4C14F0~7B8204E6}$ $\hex{7841A165~E924945C~D07F37E7}$
 %
 Идентификатор \algname{belt-keywrap256} 
 определен в СТБ~34.101.31 (приложение~Б).
+\\
+\hline
+Приложение~\ref{NT},\par
+пункт~\ref{NT.PrimeQ.Vars},\par
+заголовок 
+&
+Вычисление символа Лежандра
+&
+Переменные
+\\
+\hline
+Приложение~\ref{NT},\par
+пункт~\ref{NT.PrimeQ.Alg},\par
+заголовок 
+&
+Алгоритм
+&
+Алгоритм Рабина~--- Миллера
+\\
+\hline
+Приложение~\ref{NT},\par
+пункт~\ref{NT.Legendre.InOut},\par
+заголовок 
+& 
+Вычисление символа Лежандра
+&
+Входные и выходные данные
+\\
+\hline
+Приложение~\ref{NT},\par
+пункт~\ref{NT.Legendre.Alg},\par
+шаг 6 
+& 
+Если $n\equiv 3\pmod{4}$ или $r\equiv 3\pmod{4}$, 
+то $t\leftarrow -t$.
+&
+Если $n\equiv 3\pmod{4}$ и $r\equiv 3\pmod{4}$, 
+то $t\leftarrow -t$.
 \\
 \hline
 \end{tabular}

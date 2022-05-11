@@ -36,9 +36,9 @@
 %Возвратить~$u$.
 %\end{enumerate}
 
-\hiddensection{Проверка простоты алгоритмом Рабина~--- Миллера}\label{PRIMEQ}
+\hiddensection{Проверка простоты алгоритмом Рабина~--- Миллера}\label{NT.PrimeQ}
 
-\subsection{Входные и выходные данные}
+\subsection{Входные и выходные данные}\label{NT.PrimeQ.InOut}
 
 Входными данными алгоритма Рабина~-- Миллера
 являются нечетное число~$n\geq 5$,
@@ -57,12 +57,12 @@
 Если $l$~--- длина двоичного представления $n$, т.~е. $2^{l-1}\leq n<2^l$,
 то рекомендуется выбирать $T\geq l/4$.
 
-\subsection{Переменные}
+\subsection{Переменные}\label{NT.PrimeQ.Vars}
 
 Используются переменные~$u\in\{2,3,\ldots,n-2\}$
 и~$v\in\{1,2,\ldots,n-1\}$.
 
-\subsection{Алгоритм Рабина~--- Миллера}\label{PRIMEQ.Alg}
+\subsection{Алгоритм Рабина~--- Миллера}\label{NT.PrimeQ.Alg}
 
 Проверка простоты~$n$ состоит в выполнении следующих шагов:
 \begin{enumerate}
@@ -98,16 +98,16 @@ $v\leftarrow v^2\bmod n$;
 Возвратить \texttt{ДА}.
 \end{enumerate}
 
-\hiddensection{Вычисление символа Лежандра}\label{LEGENDRE}
+\hiddensection{Вычисление символа Лежандра}\label{NT.Legendre}
 
-\subsection{Входные и выходные данные}
+\subsection{Входные и выходные данные}\label{NT.Legendre.InOut}
 
 Входными данными алгоритма вычисления символа Лежандра
 являются нечетное простое число~$n$ и~$u\in\{0,1,\ldots,n-1\}$.
 
 Выходными данными является символ Лежандра~$\left(\frac{u}{n}\right)$.
 
-\subsection{Переменные}
+\subsection{Переменные}\label{NT.Legendre.Vars}
 
 Входные данные интерпретируются как начальные
 значения переменных~$n$ и~$u$.
@@ -115,8 +115,7 @@ $v\leftarrow v^2\bmod n$;
 
 Используется переменная~$t\in\{-1,1\}$.
 
-\subsection{Алгоритм вычисления символа Лежандра}
-\label{LEGENDRE.Alg}
+\subsection{Алгоритм вычисления символа Лежандра}\label{NT.Legendre.Alg}
 
 Вычисление~$\left(\frac{u}{n}\right)$ 
 состоит в выполнении следующих шагов:
