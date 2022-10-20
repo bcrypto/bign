@@ -6,6 +6,8 @@
 *.thm
 *.toc
 *.dvi
+*.fls
+*.fdb_latexmk
 
 # Graphic files
 *.eps
