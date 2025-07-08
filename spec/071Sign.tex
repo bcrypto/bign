@@ -6,8 +6,8 @@
 параметры $p$, $a$, $b$, $q$, $G$, которые описывают группу 
 точек эллиптической кривой.
 Параметры должны удовлетворять условиям алгоритма~\ref{VALEC}. 
-По модулю~$p$ определяется уровень стойкости~$l$ как минимальное 
-натуральное число, для которого $p<2^{2l}$.
+По модулю~$p$ определяется уровень стойкости~$\ell$ как минимальное 
+натуральное число, для которого $p<2^{2\ell}$.
 
 Кроме параметров эллиптической кривой,
 входными данными алгоритма выработки ЭЦП
@@ -15,7 +15,7 @@
 и личный ключ~$d\in\{1,2,\ldots,q-1\}$.
 
 Выходными данными алгоритма выработки ЭЦП
-является слово $S\in\{0,1\}^{3l}$~--- 
+является слово $S\in\{0,1\}^{3\ell}$~--- 
 подпись~$X$.
 
 Кроме параметров эллиптической кривой,
@@ -41,7 +41,7 @@
 
 {\bf Функция~$h$}.
 Используется функция хэширования~$h$, 
-которая действует из $\{0,1\}^{*}$ в~$\{0,1\}^{2l}$.
+которая действует из $\{0,1\}^{*}$ в~$\{0,1\}^{2\ell}$.
 Требования к~$h$ определены в~\ref{COMMON.Hash}.
 
 {\bf Одноразовый личный ключ~$k$}.
@@ -50,18 +50,18 @@
 Требования по управлению~$k$ определены в~\ref{COMMON.Keys}.
 
 {\bf Переменная $H$}.
-Используется переменная~$H\in\{0,1\}^{2l}$.
+Используется переменная~$H\in\{0,1\}^{2\ell}$.
 
 {\bf Переменная $R$}.
 Используется переменная~$R\in E_{a,b}(\FF_p)$.
 
 {\bf Переменная $t$}.
-При проверке ЭЦП используется переменная~$t\in\{0,1\}^l$.
+При проверке ЭЦП используется переменная~$t\in\{0,1\}^\ell$.
 
 \subsection{Алгоритм выработки электронной цифровой подписи}
 \label{SIGN.Sign}
 
-ЭЦП составляется из частей~$S_0\in\{0,1\}^{l}$ и~$S_1\in\{0,1\}^{2l}$. 
+ЭЦП составляется из частей~$S_0\in\{0,1\}^\ell$ и~$S_1\in\{0,1\}^{2\ell}$. 
 Выработка ЭЦП состоит в выполнении следующих шагов:
 \begin{enumerate}
 \item
@@ -80,13 +80,13 @@ $k\stackrel{R}{\leftarrow}\{1,2,\ldots,q-1\}$
 $S_0\leftarrow 
 \bigl\langle
 \algname{belt-hash}
-(\OID(h)\parallel\langle R\rangle_{2l}\parallel H)
-\bigr\rangle_{l}$.
+(\OID(h)\parallel\langle R\rangle_{2\ell}\parallel H)
+\bigr\rangle_\ell$.
 
 \item
 Установить
-$S_1\leftarrow\bigl\langle(k-\overline{H}-(\overline{S}_0+2^{l})d)\bmod q
-\bigr\rangle_{2l}$.
+$S_1\leftarrow\bigl\langle(k-\overline{H}-(\overline{S}_0+2^\ell)d)\bmod q
+\bigr\rangle_{2\ell}$.
 
 \item
 Установить $S\leftarrow S_0\parallel S_1$.
@@ -101,12 +101,12 @@ $S_1\leftarrow\bigl\langle(k-\overline{H}-(\overline{S}_0+2^{l})d)\bmod q
 Проверка ЭЦП состоит в выполнении следующих шагов:
 \begin{enumerate}
 \item
-Если $|S|\neq 3l$,
+Если $|S|\neq 3\ell$,
 то возвратить \texttt{НЕТ}.
 
 \item
 Представить $S$ в виде $S=S_0\parallel S_1$,
-где $S_0\in\{0,1\}^{l}$, $S_1\in\{0,1\}^{2l}$.
+где $S_0\in\{0,1\}^{\ell}$, $S_1\in\{0,1\}^{2\ell}$.
 
 \item
 Если $\overline{S}_1\geq q$,
@@ -118,7 +118,7 @@ $S_1\leftarrow\bigl\langle(k-\overline{H}-(\overline{S}_0+2^{l})d)\bmod q
 \item
 Установить
 $R\leftarrow \left((\overline{S}_1+\overline{H})\bmod q\right)G+
-(\overline{S}_0+2^{l})Q$.
+(\overline{S}_0+2^{\ell})Q$.
 
 \item
 Если $R=O$, то возвратить \texttt{НЕТ}.
@@ -127,8 +127,8 @@ $R\leftarrow \left((\overline{S}_1+\overline{H})\bmod q\right)G+
 Установить 
 $t\leftarrow\bigl\langle
 \algname{belt-hash}
-(\OID(h)\parallel\langle R\rangle_{2l}\parallel H)
-\bigr\rangle_l$.
+(\OID(h)\parallel\langle R\rangle_{2\ell}\parallel H)
+\bigr\rangle_\ell$.
 
 \item
 Если $S_0\neq t$,

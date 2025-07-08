@@ -76,8 +76,8 @@
 параметры $p$, $a$, $b$, $q$, $G$, которые описывают группу 
 точек эллиптической кривой.
 Параметры должны удовлетворять условиям алгоритма~\ref{VALEC}. 
-По модулю~$p$ определяется уровень стойкости~$l$ как минимальное 
-натуральное число, для которого $p<2^{2l}$.
+По модулю~$p$ определяется уровень стойкости~$\ell$ как минимальное 
+натуральное число, для которого $p<2^{2\ell}$.
 
 Кроме параметров эллиптической кривой,
 входными данными алгоритма извлечения пары ключей
@@ -106,7 +106,7 @@
 и личный ключ~$e\in\{0,1,\ldots,q-1\}$.
 
 Выходными данными алгоритма выработки ИЭЦП
-является слово~$S\in\{0,1\}^{3l}$~--- 
+является слово~$S\in\{0,1\}^{3\ell}$~--- 
 идентификационная подпись~$X$.
 
 Кроме параметров эллиптической кривой,
@@ -142,7 +142,7 @@
 
 {\bf Функция~$h$}.
 Используется функция хэширования~$h$, 
-которая действует из $\{0,1\}^{*}$ в~$\{0,1\}^{2l}$.
+которая действует из $\{0,1\}^{*}$ в~$\{0,1\}^{2\ell}$.
 Требования к~$h$ определены в~\ref{COMMON.Hash}.
 
 {\bf Одноразовый личный ключ~$k$}.
@@ -154,13 +154,13 @@
 полученной на шаге~2 алгоритма~\ref{IBS.Sign}.
 
 {\bf Переменные~$H_0, H$}.
-Используются переменные~$H_0, H\in\{0,1\}^{2l}$.
+Используются переменные~$H_0, H\in\{0,1\}^{2\ell}$.
 
 {\bf Переменная~$V$}.
 Используется переменная~$V\in E_{a,b}(\FF_p)$.
 
 {\bf Переменная~$t$}.
-При проверке ИЭЦП используется переменная~$t\in\{0,1\}^{l}$.
+При проверке ИЭЦП используется переменная~$t\in\{0,1\}^\ell$.
 
 \subsection{Алгоритм извлечения пары ключей}
 \label{IBS.Extract}
@@ -168,12 +168,12 @@
 Извлечение пары ключей состоит в выполнении следующих шагов:
 \begin{enumerate}
 \item
-Если $|S|\neq 3l$,
+Если $|S|\neq 3\ell$,
 то возвратить \texttt{ОШИБКА}.
 
 \item
 Представить $S$ в виде $S=S_0\parallel S_1$,
-где $S_0\in\{0,1\}^{l}$, $S_1\in\{0,1\}^{2l}$.
+где $S_0\in\{0,1\}^\ell$, $S_1\in\{0,1\}^{2\ell}$.
 
 \item
 Если~$\overline{S}_1\geq q$,
@@ -187,7 +187,7 @@
 
 \item
 Установить
-$V\leftarrow eG + (\overline{S}_0+2^{l})Q$.
+$V\leftarrow eG + (\overline{S}_0+2^\ell)Q$.
 
 \item
 Если $V=O$, то возвратить \texttt{ОШИБКА}.
@@ -195,8 +195,8 @@ $V\leftarrow eG + (\overline{S}_0+2^{l})Q$.
 \item
 Установить $t\leftarrow
 \bigl\langle\algname{belt-hash}
-(\OID(h)\parallel\langle V\rangle_{2l}\parallel H_0)
-\bigr\rangle_l$.
+(\OID(h)\parallel\langle V\rangle_{2\ell}\parallel H_0)
+\bigr\rangle_\ell$.
 
 \item
 Если $S_0\neq t$,
@@ -213,7 +213,7 @@ $V\leftarrow eG + (\overline{S}_0+2^{l})Q$.
 электронной цифровой подписи}\label{IBS.Sign}
 
 ИЭЦП составляется из 
-частей~$S_0\in\{0,1\}^{l}$ и~$S_1\in\{0,1\}^{2l}$. 
+частей~$S_0\in\{0,1\}^\ell$ и~$S_1\in\{0,1\}^{2\ell}$. 
 Выработка ИЭЦП состоит в выполнении следующих шагов:
 \begin{enumerate}
 \item
@@ -234,13 +234,13 @@ $k\stackrel{R}{\leftarrow}\{1,2,\ldots,q-1\}$
 Установить
 $S_0\leftarrow
 \bigl\langle\algname{belt-hash}
-(\OID(h)\parallel\langle V\rangle_{2l}\parallel H_0\parallel H)
-\bigr\rangle_l$.
+(\OID(h)\parallel\langle V\rangle_{2\ell}\parallel H_0\parallel H)
+\bigr\rangle_\ell$.
 
 \item
 Установить
-$S_1\leftarrow\left\langle(k-\overline{H}-(\overline{S}_0+2^{l})e)\bmod q
-\right\rangle_{2l}$.
+$S_1\leftarrow\left\langle(k-\overline{H}-(\overline{S}_0+2^\ell)e)\bmod q
+\right\rangle_{2\ell}$.
 
 \item
 Установить $S\leftarrow S_0\parallel S_1$.
@@ -257,12 +257,12 @@ $S_1\leftarrow\left\langle(k-\overline{H}-(\overline{S}_0+2^{l})e)\bmod q
 в выполнении следующих шагов:
 \begin{enumerate}
 \item
-Если $|S|\neq 3l$,
+Если $|S|\neq 3\ell$,
 то возвратить \texttt{НЕТ}.
 
 \item
 Представить $S$ в виде $S=S_0\parallel S_1$,
-где $S_0\in\{0,1\}^{l}$, $S_1\in\{0,1\}^{2l}$.
+где $S_0\in\{0,1\}^\ell$, $S_1\in\{0,1\}^{2\ell}$.
 
 \item
 Если $\overline{S}_1\geq q$,
@@ -281,13 +281,13 @@ $S_1\leftarrow\left\langle(k-\overline{H}-(\overline{S}_0+2^{l})e)\bmod q
 \item
 Установить $t\leftarrow
 \bigl\langle\algname{belt-hash}
-(\OID(h)\parallel\langle R\rangle_{2l}\parallel H_0)
-\bigr\rangle_l$.
+(\OID(h)\parallel\langle R\rangle_{2\ell}\parallel H_0)
+\bigr\rangle_\ell$.
 
 \item
 Установить
 $V\leftarrow \left((\overline{S}_1+\overline{H})\bmod q\right)G+
-(\overline{S}_0+2^{l})(R-(\overline{t} + 2^l)Q)$.
+(\overline{S}_0+2^\ell)(R-(\overline{t} + 2^\ell)Q)$.
 
 \item
 Если $V=O$, то возвратить \texttt{НЕТ}.
@@ -295,8 +295,8 @@ $V\leftarrow \left((\overline{S}_1+\overline{H})\bmod q\right)G+
 \item
 Установить $t\leftarrow
 \bigl\langle\algname{belt-hash}
-(\OID(h)\parallel\langle V\rangle_{2l}\parallel H_0\parallel H)
-\bigr\rangle_l$.
+(\OID(h)\parallel\langle V\rangle_{2\ell}\parallel H_0\parallel H)
+\bigr\rangle_\ell$.
 
 \item
 Если $S_0\neq t$,
@@ -311,8 +311,8 @@ $V\leftarrow \left((\overline{S}_1+\overline{H})\bmod q\right)G+
 электронной цифровой подписи с открытым ключом}
 \label{IBS.Format}
 
-При передаче и хранении ИЭЦП~$S\in\{0,1\}^{3l}$
+При передаче и хранении ИЭЦП~$S\in\{0,1\}^{3\ell}$
 должна объединяться с открытым ключом~$R\in E_{a,b}^*(\FF_p)$ 
-в виде слова~$S\parallel\langle R\rangle_{4l}$.
+в виде слова~$S\parallel\langle R\rangle_{4\ell}$.
 
 \end{appendix}
