@@ -1,8 +1,11 @@
 \clearpage
-\chapter*{\mbox{}\hfill Поправка к официальной редакции\hfill\mbox{}}
+\chapter*{\mbox{}\hfill Поправка к официальной редакции\footnote{
+Синим цветом выделены корректировки, пока не принятые официально.
+}\hfill\mbox{}}
 
 \mbox{}
 
+{\small
 \begin{center}
 \begin{tabular}{|p{3.3cm}|p{6.1cm}|p{6.1cm}|}
 \hline
@@ -46,7 +49,20 @@ $L=\langle 129+r\rangle_8\parallel
 \langle b_0\rangle_8$
 \\
 \hline
+\addendum{Приложение~\ref{TEST},}\par
+\addendum{пункт~\ref{TEST.GENK},}\par
+\addendum{абзац 1}
+&
+В таблицах~\ref{Table.TEST.GENK}, \ref{Table.TEST.GENK1} 
+представлены примеры генерации одноразового личного ключа.
+&
+В таблицах~\ref{Table.TEST.GENK}, \ref{Table.TEST.GENK1} 
+представлены примеры генерации одноразового личного ключа с помощью алгоритма,
+установленного в~\ref{GENK}.
+\\
+\hline
 Приложение~\ref{TEST},\par
+пункт~\ref{TEST.GENK},\par
 таблица~\ref{Table.TEST.GENK1},\par
 последняя строка &
 $\hexz{AE443163~32A85C3B~9F6B31EE}$ $\hexz{EADFF088~D30FE507~021AC86A}$
@@ -117,37 +133,6 @@ $\hex{85D1F932~A3583107}$\\
 \mbox{}~~1)~$t\leftarrow\HMAC_{\algname{belt-hash}}(P,t)$;\par
 \mbox{}~~2)~$\theta\leftarrow\theta\oplus t$.\par
 4~Возвратить~$\theta$.\\
-%
-\hline
-Приложение~\ref{PASSWORD},\par
-таблица~\ref{Table.PASSWORD.TestPBKDF},\par
-строка~3 
-&
-$\hexz{BE329713~43FC9A48~A02A885F}$ $\hex{194B09A1}$ 
-&
-$\hex{BE329713~43FC9A48}$\\
-\hline
-Приложение~\ref{PASSWORD},\par
-таблица~\ref{Table.PASSWORD.TestPBKDF},\par
-строка~4 
-&
-$\hexz{D9024724~82130F3B~77D09303}$ $\hexz{03DD7E4E~68630CC0~2B56A8B2}$
-$\hex{AFA74F09~6BCAC971}$
-&
-$\hexz{3D331BBB~B1FBBB40~E4BF22F6}$ $\hexz{CB9A689E~F13A77DC~09ECF932}$
-$\hex{91BFE424~39A72E7D}$
-\\
-\hline
-Приложение~\ref{PASSWORD},\par
-таблица~\ref{Table.PASSWORD.TestPBKDF},\par
-строки 5, 6 
-&
-$\hexz{248E0CD7~639B1237~76F1CEC1}$ $\hexz{FCECE708~C2DFC53F~78ECEA6C}$
-$\hexz{33B4C3C1~E6183AD6~D8A18CFA}$ $\hex{F540976E~1022B89D~BA32DA18}$
-&
-$\hexz{4EA289D5~F718087D~D8EDB305}$ $\hexz{BA1CE898~0E5EC3E0~B56C8BF9}$
-$\hexz{D5C3E909~CF4C14F0~7B8204E6}$ $\hex{7841A165~E924945C~D07F37E7}$
-\\
 \hline
 Приложение~\ref{PASSWORD},\par
 пункт~\ref{PASSWORD.Ids},\par
@@ -163,6 +148,40 @@ $\hexz{D5C3E909~CF4C14F0~7B8204E6}$ $\hex{7841A165~E924945C~D07F37E7}$
 %
 Идентификатор \algname{belt-keywrap256} 
 определен в СТБ~34.101.31 (приложение~Б).
+\\
+%
+\hline
+Приложение~\ref{PASSWORD},\par
+пункт~\ref{PASSWORD.Test},\par
+таблица~\ref{Table.PASSWORD.TestPBKDF},\par
+строка~3 
+&
+$\hexz{BE329713~43FC9A48~A02A885F}$ $\hex{194B09A1}$ 
+&
+$\hex{BE329713~43FC9A48}$\\
+\hline
+Приложение~\ref{PASSWORD},\par
+пункт~\ref{PASSWORD.Test},\par
+таблица~\ref{Table.PASSWORD.TestPBKDF},\par
+строка~4 
+&
+$\hexz{D9024724~82130F3B~77D09303}$ $\hexz{03DD7E4E~68630CC0~2B56A8B2}$
+$\hex{AFA74F09~6BCAC971}$
+&
+$\hexz{3D331BBB~B1FBBB40~E4BF22F6}$ $\hexz{CB9A689E~F13A77DC~09ECF932}$
+$\hex{91BFE424~39A72E7D}$
+\\
+\hline
+Приложение~\ref{PASSWORD},\par
+пункт~\ref{PASSWORD.Test},\par
+таблица~\ref{Table.PASSWORD.TestPBKDF},\par
+строки 5, 6 
+&
+$\hexz{248E0CD7~639B1237~76F1CEC1}$ $\hexz{FCECE708~C2DFC53F~78ECEA6C}$
+$\hexz{33B4C3C1~E6183AD6~D8A18CFA}$ $\hex{F540976E~1022B89D~BA32DA18}$
+&
+$\hexz{4EA289D5~F718087D~D8EDB305}$ $\hexz{BA1CE898~0E5EC3E0~B56C8BF9}$
+$\hexz{D5C3E909~CF4C14F0~7B8204E6}$ $\hex{7841A165~E924945C~D07F37E7}$
 \\
 \hline
 Приложение~\ref{NT},\par
@@ -205,3 +224,8 @@ $\hexz{D5C3E909~CF4C14F0~7B8204E6}$ $\hex{7841A165~E924945C~D07F37E7}$
 \hline
 \end{tabular}
 \end{center}
+}
+
+\thispagestyle{headings}
+
+\mbox{}
