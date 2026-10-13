@@ -7,11 +7,12 @@
 
 {\small
 \begin{center}
-\begin{tabular}{|p{3.3cm}|p{6.1cm}|p{6.1cm}|}
+\begin{longtable}{|p{3.3cm}|p{6.1cm}|p{6.1cm}|}
 \hline
 В каком месте & Напечатано & Должно быть\\
 \hline
 \hline
+\endhead
 Раздел~\ref{TERMS},\par
 термин <<целостность>>
 &
@@ -19,6 +20,17 @@
 &
 Термин <<целостность>> определяется после термина <<хэширование>>.
 \\
+%
+\hline
+\addendum{Пункт~\ref{VALEC}},\par
+\addendum{шаг 5}
+&
+6)~$qG=O$,
+&
+6)~$qG=O$;\par
+7)~$\left(\frac{4a^3+27b^2}{p}\right)=-1$,
+\\
+%
 \hline
 Пункт~\ref{TRANSPORT.InOut},\par
 абзац 3 
@@ -29,6 +41,7 @@
 Выходными данными алгоритма создания токена является 
 слово $Y\in\{0,1\}^{2\ell+|X|+128}$~--- токен ключа~$X$.
 \\
+%
 \hline
 Пункт~\ref{TRANSPORT.Wrap},\par
 заголовок
@@ -36,6 +49,7 @@
 Алгоритм генерации псевдослучайных чисел &
 Алгоритм создания токена ключа
 \\
+%
 \hline
 Приложение~\ref{BER} &
 $L=\langle 128+r\rangle_8\parallel
@@ -48,6 +62,7 @@ $L=\langle 129+r\rangle_8\parallel
 \langle b_{r-1}\rangle_8\parallel\ldots\parallel
 \langle b_0\rangle_8$
 \\
+%
 \hline
 \addendum{Приложение~\ref{TEST},}\par
 \addendum{пункт~\ref{TEST.GENK},}\par
@@ -60,6 +75,7 @@ $L=\langle 129+r\rangle_8\parallel
 представлены примеры генерации одноразового личного ключа с помощью алгоритма,
 установленного в~\ref{GENK}.
 \\
+%
 \hline
 Приложение~\ref{TEST},\par
 пункт~\ref{TEST.GENK},\par
@@ -69,7 +85,9 @@ $\hexz{AE443163~32A85C3B~9F6B31EE}$ $\hexz{EADFF088~D30FE507~021AC86A}$
 $\hex{3EC8E087~4ED33648}$ 
 &
 $\hexz{7ADC8713~283EBFA5~47A2AD9C}$ $\hexz{DFB245AE~0F7B968D~F0F91CB7}$
-$\hex{85D1F932~A3583107}$\\
+$\hex{85D1F932~A3583107}$
+\\
+%
 \hline
 Приложение~\ref{ASN},\par
 подраздел~\ref{ASN.OIDs},\par
@@ -91,7 +109,8 @@ $\hex{85D1F932~A3583107}$\\
 для защиты произвольных личных и секретных ключей,
 а также сопровождающих их служебных данных.
 Защита может выполняться с помощью алгоритмов, не обязательно совпадающих 
-с алгоритмами~\ref{PASSWORD.Protect}.\\ 
+с алгоритмами~\ref{PASSWORD.Protect}.
+\\ 
 %
 \hline
 Приложение~\ref{PASSWORD},\par
@@ -99,7 +118,9 @@ $\hex{85D1F932~A3583107}$\\
 заголовок
 &
 Вспомогательные алгоритмы &
-Вспомогательные алгоритмы и переменные\\
+Вспомогательные алгоритмы и переменные
+\\
+%
 \hline
 Приложение~\ref{PASSWORD},\par
 пункт~\ref{PASSWORD.PBKDF.Aux},\par
@@ -107,19 +128,9 @@ $\hex{85D1F932~A3583107}$\\
 &
 &
 Используется переменная~$t\in\{0,1\}^{256}$. 
-Значение~$t$ должно быть уничтожено после использования.\\
-\hline
-\end{tabular}
-
-\vfill
-
-\mbox{}
-
-\begin{tabular}{|p{3.3cm}|p{6.1cm}|p{6.1cm}|}
-\hline
-В каком месте & Напечатано & Должно быть\\
-\hline
-\hline
+Значение~$t$ должно быть уничтожено после использования.
+\\
+%
 Приложение~\ref{PASSWORD},\par
 пункт~\ref{PASSWORD.PBKDF.Alg},\par
 2-й и последующий шаги алгоритма 
@@ -132,7 +143,18 @@ $\hex{85D1F932~A3583107}$\\
 3~Для $i=2,3,\ldots,c$ выполнить:\par
 \mbox{}~~1)~$t\leftarrow\HMAC_{\algname{belt-hash}}(P,t)$;\par
 \mbox{}~~2)~$\theta\leftarrow\theta\oplus t$.\par
-4~Возвратить~$\theta$.\\
+4~Возвратить~$\theta$.
+\\
+%
+\hline
+\addendum{Приложение~\ref{PASSWORD},}\par
+\addendum{пункт~\ref{PASSWORD.Ids}}
+&
+\algname{keyLenght}
+&
+\algname{keyLength}
+\\
+%
 \hline
 Приложение~\ref{PASSWORD},\par
 пункт~\ref{PASSWORD.Ids},\par
@@ -171,6 +193,7 @@ $\hex{AFA74F09~6BCAC971}$
 $\hexz{3D331BBB~B1FBBB40~E4BF22F6}$ $\hexz{CB9A689E~F13A77DC~09ECF932}$
 $\hex{91BFE424~39A72E7D}$
 \\
+%
 \hline
 Приложение~\ref{PASSWORD},\par
 пункт~\ref{PASSWORD.Test},\par
@@ -183,6 +206,7 @@ $\hexz{33B4C3C1~E6183AD6~D8A18CFA}$ $\hex{F540976E~1022B89D~BA32DA18}$
 $\hexz{4EA289D5~F718087D~D8EDB305}$ $\hexz{BA1CE898~0E5EC3E0~B56C8BF9}$
 $\hexz{D5C3E909~CF4C14F0~7B8204E6}$ $\hex{7841A165~E924945C~D07F37E7}$
 \\
+%
 \hline
 Приложение~\ref{NT},\par
 пункт~\ref{NT.PrimeQ.Vars},\par
@@ -192,6 +216,7 @@ $\hexz{D5C3E909~CF4C14F0~7B8204E6}$ $\hex{7841A165~E924945C~D07F37E7}$
 &
 Переменные
 \\
+%
 \hline
 Приложение~\ref{NT},\par
 пункт~\ref{NT.PrimeQ.Alg},\par
@@ -201,6 +226,7 @@ $\hexz{D5C3E909~CF4C14F0~7B8204E6}$ $\hex{7841A165~E924945C~D07F37E7}$
 &
 Алгоритм Рабина~--- Миллера
 \\
+%
 \hline
 Приложение~\ref{NT},\par
 пункт~\ref{NT.Legendre.InOut},\par
@@ -210,6 +236,7 @@ $\hexz{D5C3E909~CF4C14F0~7B8204E6}$ $\hex{7841A165~E924945C~D07F37E7}$
 &
 Входные и выходные данные
 \\
+%
 \hline
 Приложение~\ref{NT},\par
 пункт~\ref{NT.Legendre.Alg},\par
@@ -221,8 +248,9 @@ $\hexz{D5C3E909~CF4C14F0~7B8204E6}$ $\hex{7841A165~E924945C~D07F37E7}$
 Если $n\equiv 3\pmod{4}$ и $r\equiv 3\pmod{4}$, 
 то $t\leftarrow -t$.
 \\
+%
 \hline
-\end{tabular}
+\end{longtable}
 \end{center}
 }
 

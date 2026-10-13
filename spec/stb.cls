@@ -593,6 +593,7 @@
      \sbox\@tempboxa{\bfseries\small #1~--- }
      \setlength\@tempdima{\hsize}
      \addtolength\@tempdima{-\wd\@tempboxa}
+     \vskip 4\p@
      \sbox\@tempboxa{\bfseries #2}
      \ifdim\wd\@tempboxa >\@tempdima
        \makebox{\bfseries\small #1~--- }\raisebox{8pt}
